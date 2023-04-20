@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Forest_move : MonoBehaviour
+public class Laser_move : MonoBehaviour
 {
 public List<GameObject> waypoints;
     public float speed = 2; 
-    float original_speed = 3;
+    float original_speed = 0.1f;
     int index = 0;
     public bool isLoop = true;
 
@@ -32,8 +32,8 @@ public List<GameObject> waypoints;
             {
                 index++;
             }
-            if(index >= 45 & index <= 54){
-                speed = 3;
+            if(index == 1){
+                speed = 2000;
             }
         }
         else
@@ -44,5 +44,5 @@ public List<GameObject> waypoints;
             }
         }
 
-    }   
+    }     
 }

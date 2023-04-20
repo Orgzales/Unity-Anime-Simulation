@@ -11466,7 +11466,7 @@ MonoBehaviour:
   - {fileID: 1369277632}
   - {fileID: 654108037}
   - {fileID: 2095418610}
-  speed: 2
+  speed: 0.55
   isLoop: 1
 --- !u!1001 &1829747524
 PrefabInstance:
