@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpecialLaser : MonoBehaviour
+public class Angle_laser : MonoBehaviour
 {
 public List<GameObject> waypoints;
     public float speed = 2; 
@@ -12,7 +12,7 @@ public List<GameObject> waypoints;
     public AudioSource sound;
     public AudioSource sound2;
     int wait = 0;
-
+    bool fire = true;
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +23,11 @@ public List<GameObject> waypoints;
     // Update is called once per frame
     private void Update()
     {
-        if(index == 2){
+        if(index > 0){
             wait++;
-            if(wait > 30 ){
+            if(wait > 120 & fire == true){
                 sound2.Play();
-                wait = 0;
+                fire = false;
             }
         }
         
@@ -36,19 +36,19 @@ public List<GameObject> waypoints;
         transform.position = newPos;
 
         float distance = Vector3.Distance(transform.position, destination);
+
         if(distance <= 0.05)
         {
+            
             speed = original_speed;
             if(index < waypoints.Count-1)
             {
+                sound.Play();
                 index++;
+                
             }
             if(index == 1){
-                sound.Play();
                 speed = 2000;
-            }
-            if(index == 3){
-                speed = 5000;
             }
         }
         else
@@ -59,5 +59,5 @@ public List<GameObject> waypoints;
             }
         }
 
-    }    
+    }     
 }

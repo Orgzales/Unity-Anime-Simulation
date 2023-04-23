@@ -9,6 +9,7 @@ public List<GameObject> waypoints;
     float original_speed = 0.1f;
     int index = 0;
     public bool isLoop = true;
+    public AudioSource sound;
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +26,16 @@ public List<GameObject> waypoints;
         transform.position = newPos;
 
         float distance = Vector3.Distance(transform.position, destination);
+
         if(distance <= 0.05)
         {
+            
             speed = original_speed;
             if(index < waypoints.Count-1)
             {
+                sound.Play();
                 index++;
+                
             }
             if(index == 1){
                 speed = 2000;
