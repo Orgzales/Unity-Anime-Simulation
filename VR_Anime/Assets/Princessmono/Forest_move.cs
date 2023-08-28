@@ -6,7 +6,7 @@ public class Forest_move : MonoBehaviour
 {
 public List<GameObject> waypoints;
     public float speed = 2; 
-    float original_speed = 3;
+    float original_speed = 7;
     int index = 0;
     public bool isLoop = true;
 
